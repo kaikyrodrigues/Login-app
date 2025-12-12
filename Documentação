@@ -1,0 +1,69 @@
+ETAPA 1 - PREPARAÇÃO DO AMBIENTE
+
+criei a pasta do projeto e iniciei um repositorio com git init
+
+criei duas pastas server e client
+
+dentro da pasta server [npm init -y]
+
+dentro da pasta server [
+npm install express mysql2 dotenv bcrypt jsonwebtoken cors
+]
+
+no package.json 
+"scripts": {
+  "start": "node index.js",
+  "dev": "nodemon index.js"
+}
+
+
+*** Frontend: criar app React com Vite ***
+
+na pasta client [npm create vite@latest . -- --template react
+npm install]
+
+**  CRIANDO O BANCO DE DADOS **
+
+criei um novo esquema com nome login_app
+
+em server users and privileges criei um User
+
+Login Name: login_user
+
+Authentication Type: Standard
+
+Limit to Hosts Matching: localhost
+
+Password: Kaiky@2025
+
+Confirm Password: repita sua senha
+
+** CRIAR A TABALE DE USUARIOS **
+
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+** CONECTANDO O NODE AO SQL **
+Na pasta server criei o arquivo .env
+
+na pasta server criei o arquivo db.js
+
+** CRIANDO O SERVIDOR + NODE EXPRESS **
+crie o index.js na pasta server e crie a rota inicial
+
+Crie um arquivo chamado authController.js dentro da pasta server
+
+Esse arquivo vai centralizar a lógica de cadastro e login.
+
+
+
+
+
+
+
+
