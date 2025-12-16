@@ -4,12 +4,14 @@ import './App.css'
 export default function Login({ onSwitch, onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [msg, setMsg] = useState('');
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setMsg("");
 
     if (!email || !password) {
-      return alert("Preencha todos os campos");
+      return setMsg("Preencha todos os campos");
     }
 
     try {
@@ -22,9 +24,9 @@ export default function Login({ onSwitch, onLoginSuccess }) {
       const data = await response.json();
 
       if (!response.ok) {
-        return alert(data.error || "Erro ao fazer login");
+        return setMsg(data.error || "Erro ao fazer login");
       }
-
+      alert("Login realizado com sucesso!");
       // login bem-sucedido
       onLoginSuccess(); // informa ao App que o usuário logou
     } catch (err) {
@@ -34,7 +36,7 @@ export default function Login({ onSwitch, onLoginSuccess }) {
   }
     
     return(
-        
+          
             <form className="form" onSubmit={handleSubmit}>
                 <div className="input">
                     <label htmlFor="email">Email:</label>
@@ -60,6 +62,9 @@ export default function Login({ onSwitch, onLoginSuccess }) {
                     <button className="btn-item" type="submit">Entrar</button>
                     <button className="btn-item" onClick={onSwitch}> Inscrever-se</button>
                 </div>
+
+                {/* 🔥 Aqui aparece a mensagem */}
+                {msg && <p className="message">{msg}</p>}
             </form>
        
     )

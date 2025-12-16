@@ -1,9 +1,11 @@
+import './App.css'
+
 export default function Dashboard({ onLogout }) {
   return (
-    <div style={{ textAlign: "center", padding: 30 }}>
+    <div className='bem-vindo'>
       <h1>🎉 Bem-vindo!</h1>
       <p>Você entrou com sucesso.</p>
-      <button onClick={onLogout}>Sair</button>
+      <button onClick={onLogout} className='btn-item'>Sair</button>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Login from './Login';
 import Register from './Register';
 import Dashboard from './Dashboard';
 import './App.css';
+import Cabecalho from './components/Cabecalho';
 
 export default function App() {
   const [showRegister, setShowRegister] = useState(false);
@@ -31,6 +32,8 @@ export default function App() {
   // se não está logado, mostramos Login ou Register
   return (
     <div className="container">
+      <Cabecalho showRegister={showRegister}
+  onToggle={() => setShowRegister(!showRegister)} />
       {showRegister ? (
         <Register onSwitch={() => setShowRegister(false)} />
       ) : (

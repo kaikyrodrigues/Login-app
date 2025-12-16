@@ -1,6 +1,7 @@
 import { useState } from "react";
 import './App.css'
 
+
 export default function Register({ onSwitch }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,10 +30,11 @@ export default function Register({ onSwitch }) {
     }
   }
   return(
-          <form className="form" onSubmit={handleRegister}>
-            <h2>Inscrever-se</h2>
+
+          <div>
+            <form className="form" onSubmit={handleRegister}>
           <div className="input">
-            <label>Email</label>
+            <label>Email:</label>
             <input 
               type="email"
               value={email}
@@ -41,7 +43,7 @@ export default function Register({ onSwitch }) {
           </div>
             
           <div className="input">
-            <label>Senha</label>
+            <label>Senha:</label>
             <input 
               type="password"
               value={password}
@@ -60,5 +62,6 @@ export default function Register({ onSwitch }) {
             
         </form>
 
+          </div>
     )
 }
